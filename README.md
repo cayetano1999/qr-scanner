@@ -1,0 +1,2 @@
+# qr-scanner
+QR AND BAR CODE SCANNER
