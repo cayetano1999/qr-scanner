@@ -15,7 +15,7 @@
       <ion-button (click)="goToAdd()">Agregar Nuevo</ion-button>
     </ion-list-header>
 
-    <ion-item  detail *ngFor="let item of scanners">
+    <ion-item (click)="showInWeb(item)"  detail *ngFor="let item of scanners">
       <ion-icon slot="start" color="primary" [name]="item.icon"></ion-icon>
       <ion-label>
         <strong>{{item?.text}}</strong>
