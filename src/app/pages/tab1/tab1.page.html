@@ -58,13 +58,13 @@
     
   </ion-grid>
 
-  <ion-grid *ngIf="result" fixed>
+  <ion-grid *ngIf="!result?.cancelled" fixed>
     <ion-row>
       <ion-col size="12">
         <div class="alert alert-danger" role="alert">
           <strong>Resultado:</strong>
           <div class="row px-1">
-            <a href="">{{result}}</a>
+            <a href="">{{result?.text}}</a>
           </div>
         </div>
       </ion-col>
