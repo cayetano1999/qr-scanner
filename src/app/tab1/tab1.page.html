@@ -1,54 +1,51 @@
-<ion-header class="ion-no-border d-block d-md-none d-lg-none d-xl-none banner">
-  <ion-toolbar class="banner" color="primary">
-    <div style="background-color: #cd2d30">
-      <h2 class="text-center mb-2 mt-3"><strong>Scanner</strong></h2>
-    </div>
+<ion-header class="ion-no-border d-block d-md-none d-lg-none d-xl-none banner ion-padding">
+  <ion-toolbar>
+    <h2 class="text-left mr-3"><strong> <i class="fa fa-qrcode text-danger" aria-hidden="true"></i> Scanner</strong></h2>
   </ion-toolbar>
 </ion-header>
 
 <ion-content
-style="position: relative!important;"
-  [scrollEvents]="true"
-  (ionScroll)="onScroll($event)"
   [fullscreen]="true"
-  color="light"
   class="ion-padding"
-  
 >
-  
-  <ion-grid color="light" fixed>
-    <ion-row *ngFor="let item of [1,1,1,1,1,1,1,1,1]">
+  <ion-grid class="bg-light rounded" fixed>
+    <ion-row class="mt-1">
       <ion-col size="4">
-          <div class="card text-center shadow-sm border-0" style="border-radius: 20px;">
-            <div class="card-body">
-              <i class="fa fa-history fa-3x text-danger" aria-hidden="true"></i>
-              <p class="card-title"><strong>Historial</strong></p>
-            </div>
+        <div
+          class="card text-center shadow-sm border-0"
+          style="border-radius: 20px"
+        >
+          <div class="card-body">
+            <i class="fa fa-history fa-2x text-danger" aria-hidden="true"></i>
+            <p class="card-title">Historial</p>
           </div>
+        </div>
       </ion-col>
       <ion-col size="4">
-        <div class="card text-center shadow-sm border-0" style="border-radius: 20px;">
+        <div
+          class="card text-center shadow-sm border-0"
+          style="border-radius: 20px"
+        >
           <div class="card-body">
-          
-            <i class="fa fa-share fa-3x text-success" aria-hidden="true"></i>
-            <p class="card-title"><strong>Exportar</strong></p>
+            <i class="fa fa-share fa-2x text-danger" aria-hidden="true"></i>
+            <p class="card-title">Exportar</p>
           </div>
         </div>
-    </ion-col>
+      </ion-col>
 
-    <ion-col size="4">
-      <div class="card text-center shadow-sm border-0" style="border-radius: 20px;">
-        <div class="card-body">
-          
-          <i class="fa fa-share-alt fa-3x text-warning" aria-hidden="true"></i>
-          <p class="card-title"><strong>Compartir</strong></p>
+      <ion-col size="4">
+        <div
+          class="card text-center shadow-sm border-0"
+          style="border-radius: 20px"
+        >
+          <div class="card-body">
+            <i class="fa fa-share-alt fa-2x text-danger" aria-hidden="true"></i>
+            <p class="card-title">Compartir</p>
+          </div>
         </div>
-      </div>
-  </ion-col>
+      </ion-col>
 
       <ion-col size="6"></ion-col>
     </ion-row>
   </ion-grid>
-
-
 </ion-content>
