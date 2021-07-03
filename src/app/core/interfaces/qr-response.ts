@@ -12,6 +12,7 @@ export class BarcodeScanResult {
      */
     constructor(format: string, text: string, cancel: boolean) {
         this.cancelled = cancel;
+        this.text = text;
         this.determinateType();
     }
 
@@ -20,16 +21,20 @@ export class BarcodeScanResult {
             return;
         }
         const startText = this.text.substr(0, 4).toLowerCase();
-
+        debugger;
         switch (startText) {
             case 'http':
                 this.type = 'http';
-                this.icon = 'globe';
+                this.icon = 'globe-outline';
                 break;
             case 'geo':
-                this.type = 'http';
+                this.type = 'HTTP';
                 this.icon = 'pin';
                 break;
+            case 'smst':
+                this.type = 'SMS';
+                this.icon = 'chatbox-outline';
+                break
             default:
                 this.type = 'Not Available';
                 this.icon = 'add';

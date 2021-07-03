@@ -1,17 +1,38 @@
-<ion-header [translucent]="true">
+<ion-header class="ion-no-border banner ion-padding" [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button color="danger" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title> Historial de Scanners </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Tus Escaneos</ion-label>
+      <ion-button (click)="goToAdd()">Agregar Nuevo</ion-button>
+    </ion-list-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+    <ion-item  detail *ngFor="let item of scanners">
+      <ion-icon slot="start" color="primary" [name]="item.icon"></ion-icon>
+      <ion-label>
+        <strong>{{item?.text}}</strong>
+        <p class="text-muted">{{item?.created | date: 'medium'}}</p>
+        <ion-badge class="px-3" color="primary" mode="ios">{{item?.type}}</ion-badge>
+        <span style="color: white;">-</span>
+        <ion-badge color="warning" mode="ios">{{item?.format}}</ion-badge>
+
+      </ion-label>
+    </ion-item>
+
+      <ion-button *ngIf="scanners.length > 0" class="mt-4" (click)="clear()" color="dark" expand="block"  shape="round">
+        Eliminar Historial
+      </ion-button>
+  </ion-list>
+
+  <div *ngIf="scanners.length == 0" class="alert alert-warning" role="alert">
+    <strong>No hay scanners</strong>
+  </div>
 </ion-content>

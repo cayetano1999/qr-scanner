@@ -11,6 +11,7 @@ import { ToastControllerService } from '../ionic-components/toast-controller.ser
 export class DataLocalService {
 
 
+    
     constructor(private storage: Storage, private toast: ToastControllerService) {
         // this.getAll();
     }
