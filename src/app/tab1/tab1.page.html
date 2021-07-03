@@ -1,17 +1,54 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+<ion-header class="ion-no-border d-block d-md-none d-lg-none d-xl-none banner">
+  <ion-toolbar class="banner" color="primary">
+    <div style="background-color: #cd2d30">
+      <h2 class="text-center mb-2 mt-3"><strong>Scanner</strong></h2>
+    </div>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content
+style="position: relative!important;"
+  [scrollEvents]="true"
+  (ionScroll)="onScroll($event)"
+  [fullscreen]="true"
+  color="light"
+  class="ion-padding"
+  
+>
+  
+  <ion-grid color="light" fixed>
+    <ion-row *ngFor="let item of [1,1,1,1,1,1,1,1,1]">
+      <ion-col size="4">
+          <div class="card text-center shadow-sm border-0" style="border-radius: 20px;">
+            <div class="card-body">
+              <i class="fa fa-history fa-3x text-danger" aria-hidden="true"></i>
+              <p class="card-title"><strong>Historial</strong></p>
+            </div>
+          </div>
+      </ion-col>
+      <ion-col size="4">
+        <div class="card text-center shadow-sm border-0" style="border-radius: 20px;">
+          <div class="card-body">
+          
+            <i class="fa fa-share fa-3x text-success" aria-hidden="true"></i>
+            <p class="card-title"><strong>Exportar</strong></p>
+          </div>
+        </div>
+    </ion-col>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+    <ion-col size="4">
+      <div class="card text-center shadow-sm border-0" style="border-radius: 20px;">
+        <div class="card-body">
+          
+          <i class="fa fa-share-alt fa-3x text-warning" aria-hidden="true"></i>
+          <p class="card-title"><strong>Compartir</strong></p>
+        </div>
+      </div>
+  </ion-col>
+
+      <ion-col size="6"></ion-col>
+    </ion-row>
+  </ion-grid>
+
+
 </ion-content>
