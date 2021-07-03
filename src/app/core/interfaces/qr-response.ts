@@ -20,15 +20,16 @@ export class BarcodeScanResult {
         if (this.cancelled) {
             return;
         }
-        const startText = this.text.substr(0, 4).toLowerCase();
+        let startText = this.text.substr(0, 4).toLowerCase();
+        if(this.text.toLowerCase().includes('maps')) {startText = 'geo'}
         debugger;
         switch (startText) {
             case 'http':
-                this.type = 'http';
+                this.type = 'HTTP';
                 this.icon = 'globe-outline';
                 break;
             case 'geo':
-                this.type = 'HTTP';
+                this.type = 'GEO';
                 this.icon = 'pin';
                 break;
             case 'smst':

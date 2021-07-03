@@ -44,10 +44,15 @@ export class Tab2Page {
   }
 
   showInWeb(item: BarcodeScanResult) {
-
+    //40.73151796986687 -74.060887294062502
     switch (item.type.toLowerCase()) {
       case 'http':
         this.iab.create(item.text, '_system');
+        break
+        case 'geo':
+          debugger;
+          let value = item.text.split('?q=');
+        this.router.navigate([`/tabs/map/${value[1]}`])
         break
         default:
           this.toast.showToastWarning('este scanner no puede ser seleccionado por el momento')

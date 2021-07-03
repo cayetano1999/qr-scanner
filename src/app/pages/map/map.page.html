@@ -17,12 +17,12 @@
     <ion-tabs>
 
       <ion-tab-bar slot="bottom">
-        <ion-tab-button tab="tab2">
+        <ion-tab-button [routerLink]="['/tabs/tab2']" routerLinkActive="router-link-active" >
           <i class="fa fa-history fa-2x text-danger pt-1" aria-hidden="true"></i>
           <h6>Historial</h6>
         </ion-tab-button>
     
-        <ion-tab-button tab="tab2">
+        <ion-tab-button [routerLink]="['/tabs/tab1']">
           <i class="fa fa-qrcode fa-2x text-danger pt-1" aria-hidden="true"></i>
           <h6>Scanner</h6>
         </ion-tab-button>
