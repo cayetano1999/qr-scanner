@@ -1,13 +1,21 @@
-<ion-header class="ion-no-border d-block d-md-none d-lg-none d-xl-none banner ion-padding">
+<ion-header class="ion-no-border banner ion-padding">
   <ion-toolbar>
-    <h2 class="text-left mr-3"><strong> <i class="fa fa-qrcode text-danger" aria-hidden="true"></i> Scanner</strong></h2>
+    <h2 class="text-left">
+      <strong>
+        <i class="fa fa-qrcode text-danger" aria-hidden="true"></i>
+        Scanner</strong
+      >
+    </h2>
+    <!-- <ion-title>Header</ion-title> -->
   </ion-toolbar>
 </ion-header>
 
-<ion-content
-  [fullscreen]="true"
-  class="ion-padding"
->
+<!-- <ion-header class="ion-no-border d-block d-md-none d-lg-none d-xl-none banner ion-padding">
+  <ion-toolbar>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content [fullscreen]="true" class="ion-padding">
   <ion-grid class="bg-light rounded" fixed>
     <ion-row class="mt-1">
       <ion-col size="4">
@@ -45,7 +53,34 @@
         </div>
       </ion-col>
 
-      <ion-col size="6"></ion-col>
+    </ion-row>
+
+    
+  </ion-grid>
+
+  <ion-grid *ngIf="result" fixed>
+    <ion-row>
+      <ion-col size="12">
+        <div class="alert alert-danger" role="alert">
+          <strong>Resultado:</strong>
+          <div class="row px-1">
+            <a href="">{{result}}</a>
+          </div>
+        </div>
+      </ion-col>
     </ion-row>
   </ion-grid>
+
+  <ion-slides [options]="swiperOpts" mode="ios" pager="ios" scrollbar="ios">
+    <ion-slide>
+      <div class="row">
+        <ion-button (click)="startScan()" expand="block" shape="round">
+          <i class="fa fa-qrcode p-1" aria-hidden="true"></i>
+          <strong> Scan Code</strong>
+        </ion-button>
+        
+      </div>
+
+    </ion-slide>
+  </ion-slides>
 </ion-content>
