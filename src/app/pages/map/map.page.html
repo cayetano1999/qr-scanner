@@ -1,38 +1,45 @@
-<ion-header class="ion-no-border banner ion-padding" [translucent]="true">
+<!-- <ion-header class="ion-no-border banner ion-padding" [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button color="danger" defaultHref="/"></ion-back-button>
     </ion-buttons>
 
-    <!-- <ion-title> Historial de Scanners </ion-title> -->
+    <ion-title> Historial de Scanners </ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
-<ion-content>
+<ion-content class="ion-no-padding">
+  <div id="map" ></div>
+  <pre id="coordinates" class="coordinates"></pre>
+  <ion-back-button class="btnback" color="danger" defaultHref="/tabs/tab1"></ion-back-button>
 
 </ion-content>
 
 <ion-footer class="ion-no-border">
   <ion-toolbar class="ion-no-border">
     <ion-tabs>
-
       <ion-tab-bar slot="bottom">
-        <ion-tab-button [routerLink]="['/tabs/tab2']" routerLinkActive="router-link-active" >
-          <i class="fa fa-history fa-2x text-danger pt-1" aria-hidden="true"></i>
+        <ion-tab-button
+          [routerLink]="['/tabs/tab2']"
+          routerLinkActive="router-link-active"
+        >
+          <i
+            class="fa fa-history fa-2x text-danger pt-1"
+            aria-hidden="true"
+          ></i>
           <h6>Historial</h6>
         </ion-tab-button>
-    
+
         <ion-tab-button [routerLink]="['/tabs/tab1']">
           <i class="fa fa-qrcode fa-2x text-danger pt-1" aria-hidden="true"></i>
           <h6>Scanner</h6>
         </ion-tab-button>
-    
+
         <!-- <ion-tab-button tab="tab3">
           <ion-icon name="square"></ion-icon>
           <ion-label>Tab 3</ion-label>
         </ion-tab-button> -->
       </ion-tab-bar>
-    
     </ion-tabs>
   </ion-toolbar>
 </ion-footer>

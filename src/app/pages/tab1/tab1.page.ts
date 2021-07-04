@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+import { File } from '@ionic-native/file/ngx';
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { Storage } from '@ionic/storage';
 import { BarcodeScanResult } from 'src/app/core/interfaces/qr-response';
+import { ExportService } from 'src/app/core/service/export-service/export.service';
 import { ToastControllerService } from 'src/app/core/service/ionic-components/toast-controller.service';
 import { DataLocalService } from 'src/app/core/service/storage-service/storage.service';
 
@@ -21,7 +24,7 @@ export class Tab1Page implements OnInit {
   }
   scanners: Array<BarcodeScanResult> = [];
 
-  constructor(private router: Router, private scanner: BarcodeScanner, private storageService: DataLocalService, private toast: ToastControllerService, private str: Storage) {
+  constructor(private fileService: File, private socialSharing: SocialSharing, private exportService: ExportService, private router: Router, private scanner: BarcodeScanner, private storageService: DataLocalService, private toast: ToastControllerService, private str: Storage) {
     // this.getAll();
   }
 
@@ -38,7 +41,7 @@ export class Tab1Page implements OnInit {
 
   ionViewWillEnter() {
     console.log('Va a entrar');
-    this.startScan();
+    // this.startScan();
   }
 
   startScan() {
@@ -63,6 +66,14 @@ export class Tab1Page implements OnInit {
 
   redirectHistory(){
     this.router.navigate(['/tabs/tab2'])
+  }
+
+  exportFile(){
+    this.exportService.prepareFile(this.scanners);
+  }
+
+   shareApp(){
+     this.socialSharing.share('Descarga QR - BAR Scanner para realizar tus scanners de QR y barras, ¡Sin Anuncios!', 'QR - BAR Scanner', null, 'https://play.google.com/store/apps/details?id=com.teacapps.barcodescanner')
   }
 
 }
